@@ -7,29 +7,26 @@ namespace Teste2
 {
     public partial class Form1 : Form
     {
-        tvdb conexao;
         List<Serie> listSerie;
 
         public Form1()
         {
             InitializeComponent();
-            conexao = new tvdb(lblStatus);
+            // conexao = new tvdb(lblStatus);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            tvdb.Loader = lblStatus;
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tvdb.codeStatus == 401)
-                conexao.refreshToken();
-
             if (txtSerie.Text.Trim().Length < 3)
                 return;
-            
-            listSerie = await Serie.BuscarSerie(txtSerie.Text);
+
+           // listSerie.Add(await Serie.BuscarSerie(txtSerie.Text));
+            listSerie = await Serie.BuscarSeries(txtSerie.Text);
             lsbSeries.Items.Clear();
 
             foreach (var serie in listSerie)
@@ -40,7 +37,6 @@ namespace Teste2
         {
             limparForm();
             var serie = (Serie)((ListBox)sender).SelectedItem;
-            //serie.Imagens.FanArt
             txtResumo.Text = serie.Resumo;
             lblNome.Text = serie.Nome;
             lblLan.Text = serie.Lancamento;

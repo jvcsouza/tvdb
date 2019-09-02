@@ -1,0 +1,3 @@
+0.0.8 - Adicionado Operações Paralelas/Simultaneas para WebCliente.
+      - Melhoria de Metodos Assincronos.
+      - Validação de Token de Autenticação.

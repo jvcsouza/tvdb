@@ -12,8 +12,7 @@ namespace apiSeries
 
     public partial class Serie
     {
-        private static Dictionary<string, string> dic =
-            new Dictionary<string, string>();
+        internal static Dictionary<string, string> dic;// = new Dictionary<string, string>();
         internal string _status;
         internal string _lancamento;
 
@@ -56,6 +55,45 @@ namespace apiSeries
             get => dic[_status];
             set => _status = value;
         }
+
+        [JsonProperty("added")]
+        public string Added { get; set; }
+
+        [JsonProperty("airsDayOfWeek")]
+        public string AirsDayOfWeek { get; set; }
+
+        [JsonProperty("airsTime")]
+        public string AirsTime { get; set; }
+
+        [JsonProperty("genre")]
+        public List<string> Genre { get; set; }
+
+        [JsonProperty("imdbId")]
+        public string ImdbId { get; set; }
+
+        [JsonProperty("lastUpdated")]
+        public long LastUpdated { get; set; }
+
+        [JsonProperty("networkId")]
+        public string NetworkId { get; set; }
+        
+        [JsonProperty("rating")]
+        public string Rating { get; set; }
+
+        [JsonProperty("runtime")]
+        public string Runtime { get; set; }
+
+        [JsonProperty("seriesId")]
+        public string SeriesId { get; set; }
+
+        [JsonProperty("siteRating")]
+        public long SiteRating { get; set; }
+
+        [JsonProperty("siteRatingCount")]
+        public long SiteRatingCount { get; set; }
+
+        [JsonProperty("zap2itId")]
+        public string Zap2ItId { get; set; }
 
         public List<Image> ImgFanArt { get => _imgFanArt; set => _imgFanArt = value; }
         public List<Image> ImgTemporada { get => _imgTemporada; set => _imgTemporada = value; }
