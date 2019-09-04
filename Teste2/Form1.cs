@@ -8,6 +8,7 @@ namespace Teste2
     public partial class Form1 : Form
     {
         List<Serie> listSerie;
+        Serie contexto = default(Serie);
 
         public Form1()
         {
@@ -37,17 +38,20 @@ namespace Teste2
         {
             limparForm();
             var serie = (Serie)((ListBox)sender).SelectedItem;
+            contexto = serie;
             txtResumo.Text = serie.Resumo;
             lblNome.Text = serie.Nome;
             lblLan.Text = serie.Lancamento;
             lblSt.Text = serie.Status;
             lblCodigo.Text = serie.Codigo.ToString();
+            btnBuscaTemp.Visible = true;
             pictureBox1.ImageLocation = await serie.CarregarBanner();
             pictureBox1.Show();
         }
 
         private void limparForm()
         {
+            btnBuscaTemp.Visible = false;
             txtResumo.Text = "";
             pictureBox1.Hide();
         }
@@ -55,6 +59,12 @@ namespace Teste2
         private void lblCodigo_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblCodigo.Text);
+        }
+
+        private void btnBuscaTemp_Click(object sender, EventArgs e)
+        {
+            Temporadas temp = new Temporadas(contexto);
+            temp.ShowDialog();
         }
     }
 }

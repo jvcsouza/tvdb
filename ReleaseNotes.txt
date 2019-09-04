@@ -1,3 +1,6 @@
 0.0.8 - Adicionado Operações Paralelas/Simultaneas para WebCliente.
       - Melhoria de Metodos Assincronos.
       - Validação de Token de Autenticação.
+
+0.0.9 - Corrigido bug ao buscar uma serie especifica.
+      - Adicionado novos campos de informações para Serie.

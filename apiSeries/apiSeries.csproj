@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASerieInfo.cs" />
     <Compile Include="ImageFind.cs" />
     <Compile Include="Imagem.cs" />
     <Compile Include="MSerie.cs" />

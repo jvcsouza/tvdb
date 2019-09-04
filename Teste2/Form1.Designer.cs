@@ -44,6 +44,7 @@
             this.lblSt = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.btnBuscaTemp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -215,6 +216,17 @@
             this.lblCodigo.Text = " ";
             this.lblCodigo.Click += new System.EventHandler(this.lblCodigo_Click);
             // 
+            // btnBuscaTemp
+            // 
+            this.btnBuscaTemp.Location = new System.Drawing.Point(293, 106);
+            this.btnBuscaTemp.Name = "btnBuscaTemp";
+            this.btnBuscaTemp.Size = new System.Drawing.Size(129, 23);
+            this.btnBuscaTemp.TabIndex = 20;
+            this.btnBuscaTemp.Text = "Exibir Temporadas";
+            this.btnBuscaTemp.UseVisualStyleBackColor = true;
+            this.btnBuscaTemp.Visible = false;
+            this.btnBuscaTemp.Click += new System.EventHandler(this.btnBuscaTemp_Click);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnBuscar;
@@ -222,6 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(489, 398);
+            this.Controls.Add(this.btnBuscaTemp);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblSt);
@@ -238,6 +251,7 @@
             this.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "API Series";
@@ -269,6 +283,7 @@
         private System.Windows.Forms.Label lblSt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Button btnBuscaTemp;
     }
 }
 

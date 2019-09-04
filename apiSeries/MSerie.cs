@@ -106,7 +106,7 @@ namespace apiSeries
             {
                 var url = tvdb.URL + $"series/{codigo}";
                 var json = await wClient.DownloadStringTaskAsync(url);
-                var obj = Utilidades.toObj<Serie>(json);
+                var obj = Utilidades.toObj<ASerieInfo>(json).Data;
                 tvdb.loaderStatus.Text = "Finalizado.";
                 return obj;
             }
