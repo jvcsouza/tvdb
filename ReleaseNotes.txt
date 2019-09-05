@@ -4,3 +4,6 @@
 
 0.0.9 - Corrigido bug ao buscar uma serie especifica.
       - Adicionado novos campos de informações para Serie.
+
+0.1.0 - Adicionado Itens ao Dicionario Interno.
+      - Alterado Nome das propriedades de 'Serie' para Pt-br

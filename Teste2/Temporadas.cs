@@ -1,5 +1,6 @@
 ﻿using apiSeries;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Teste2
@@ -11,9 +12,10 @@ namespace Teste2
         {
             InitializeComponent();
             contexto = serie;
+            IniciarComponentes();
         }
 
-        private async void Temporadas_Load(object sender, EventArgs e)
+        private async Task IniciarComponentes()
         {
             Text = contexto.Nome + " - Temporadas.";
             contexto = await Serie.BuscarSerie(contexto.Codigo.ToString());
@@ -21,12 +23,12 @@ namespace Teste2
             lblNome.Text = contexto.Nome;
             lblLanc.Text = contexto.Lancamento;
             lblNota.Text = contexto.SiteRating.ToString();
-            lblTemp.Text = contexto.Runtime;
+            lblTemp.Text = contexto.Duracao;
             lblStatus.Text = contexto.Status;
             var genero = "";
             foreach (var gen in contexto.Genre)
                 genero += gen + ", ";
-            if (genero.Trim().EndsWith(",")) genero = genero.Trim().Remove(genero.Length - 2).Trim() + ".";
+            if (genero.Trim().EndsWith(",")) genero = genero.Trim().Remove(genero.Length - 2) + ".";
             lblGen.Text = genero;
         }
     }

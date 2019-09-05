@@ -16,6 +16,9 @@ namespace apiSeries
         internal string _status;
         internal string _lancamento;
 
+        [JsonProperty("genre")]
+        internal List<string> _genero;
+
         internal List<Image> _imgFanArt;
         internal List<Image> _imgTemporada;
         internal List<Image> _imgPoster;
@@ -39,7 +42,7 @@ namespace apiSeries
         public int Codigo { get; set; }
 
         [JsonProperty("network")]
-        public string Network { get; set; }
+        public string Canal { get; set; }
 
         [JsonProperty("overview")]
         public string Resumo { get; set; }
@@ -64,9 +67,16 @@ namespace apiSeries
 
         [JsonProperty("airsTime")]
         public string AirsTime { get; set; }
-
-        [JsonProperty("genre")]
-        public List<string> Genre { get; set; }
+        
+        public List<string> Genre { get
+            {
+                var g = new List<string>();
+                foreach (var i in _genero)
+                    g.Add(dic[i]);
+                return g;
+            }
+            internal set => _genero = value;
+        }
 
         [JsonProperty("imdbId")]
         public string ImdbId { get; set; }
@@ -81,7 +91,7 @@ namespace apiSeries
         public string Rating { get; set; }
 
         [JsonProperty("runtime")]
-        public string Runtime { get; set; }
+        public string Duracao { get; set; }
 
         [JsonProperty("seriesId")]
         public string SeriesId { get; set; }

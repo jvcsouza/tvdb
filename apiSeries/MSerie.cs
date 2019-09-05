@@ -102,7 +102,7 @@ namespace apiSeries
         public static async Task<Serie> BuscarSerie(string codigo)
         {
             tvdb.loaderStatus.Text = "Vasculhando Serie...";
-            using(var wClient = await conn.preparaClient())
+            using (var wClient = await conn.preparaClient())
             {
                 var url = tvdb.URL + $"series/{codigo}";
                 var json = await wClient.DownloadStringTaskAsync(url);
@@ -136,6 +136,39 @@ namespace apiSeries
             dic.Add("", "Não Informado.");
             dic.Add("Continuing", "Continua.");
             dic.Add("Ended", "Finalizada.");
+            dic.Add("Upcoming", "Retornando.");
+            dic.Add("Drama", "Drama");
+            dic.Add("Thriller", "Suspense");
+            dic.Add("Suspense", "Suspense");
+            dic.Add("Comedy", "Comédia");
+            dic.Add("Horror", "Terror");
+            dic.Add("Action", "Ação");
+            dic.Add("Crime", "Crime");
+            dic.Add("Adventure", "Aventura");
+            dic.Add("Fantasy", "Fantasia");
+            dic.Add("Romance", "Romance");
+            dic.Add("Talk Show", "Talk Show");
+            dic.Add("Documentary", "Documentário");
+            dic.Add("Reality", "Reality");
+            dic.Add("Mystery", "Mistério");
+            dic.Add("Animation", "Animação");
+            dic.Add("Biography", "Biografia");
+            dic.Add("Musical", "Musical");
+            dic.Add("War", "Guerra");
+            dic.Add("Science Fiction", "Ficção Científica");
+            dic.Add("Science-Fiction", "Ficção Científica");
+            dic.Add("Sci-fi", "Ficção Científica");
+            dic.Add("Classic", "Clássico");
+            dic.Add("Western", "Faroeste");
+            dic.Add("News", "Notícia");
+            dic.Add("Family", "Família");
+            dic.Add("Travel", "Viagem");
+            dic.Add("Soap", "Novela");
+            dic.Add("Food", "Comida");
+            dic.Add("Game Show", "Game Show");
+            dic.Add("Children", "Infantil");
+            dic.Add("Special Interest", "Special Interest");
+            dic.Add("Mini-Series", "Mini-Series");
         }
     }
 }
