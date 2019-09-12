@@ -26,7 +26,37 @@ namespace apiSeries
             }
             catch (WebException e)
             {
-                tvdb.loaderStatus.Text = "Sem conexão com a Internet.";
+                switch (e.Status)
+                {
+                    case WebExceptionStatus.NameResolutionFailure:
+                    case WebExceptionStatus.ConnectFailure:
+                    case WebExceptionStatus.Timeout:
+                    case WebExceptionStatus.SendFailure:
+                    case WebExceptionStatus.TrustFailure:
+                        tvdb.loaderStatus.Text = "Sem conexão com a Internet.";
+                        break;
+                    case WebExceptionStatus.ProtocolError:
+                        tvdb.loaderStatus.Text = "Série não encontrada.";
+                        break;
+                    case WebExceptionStatus.ReceiveFailure:
+                    case WebExceptionStatus.PipelineFailure:
+                    case WebExceptionStatus.RequestCanceled:
+                    case WebExceptionStatus.ConnectionClosed:
+                    case WebExceptionStatus.SecureChannelFailure:
+                    case WebExceptionStatus.ServerProtocolViolation:
+                    case WebExceptionStatus.KeepAliveFailure:
+                    case WebExceptionStatus.Pending:
+                    case WebExceptionStatus.ProxyNameResolutionFailure:
+                    case WebExceptionStatus.UnknownError:
+                    case WebExceptionStatus.MessageLengthLimitExceeded:
+                    case WebExceptionStatus.CacheEntryNotFound:
+                    case WebExceptionStatus.RequestProhibitedByCachePolicy:
+                    case WebExceptionStatus.RequestProhibitedByProxy:
+                        Console.WriteLine(e.Status);
+                        break;
+                    default:
+                        break;
+                }
             }
             return retorno;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -10,9 +11,7 @@ namespace apiSeries
     public class tvdb
     {
         internal const string URL = "https://api.thetvdb.com/";
-        public static string temp = (Environment.GetLogicalDrives()[0]) + "temp\\";
-        internal static WebClient wClient;
-        //public string result;
+        public static string temp = Environment.GetLogicalDrives()[0] + "temp\\";
         internal static WebException originalError = null;
         public string messageError;
         public static int codeStatus { internal set; get; }
@@ -38,16 +37,14 @@ namespace apiSeries
 
         internal tvdb() => instanciarClasse();
 
-        internal tvdb(Label loadStatus)
+        internal tvdb(Label loadStatus) : base()
         {
-            instanciarClasse();
             Loader = loadStatus;
             loaderStatus.Text = "Pronto.";
         }
 
-        internal tvdb(ToolStripStatusLabel loadStatus)
+        internal tvdb(ToolStripStatusLabel loadStatus) : base()
         {
-            instanciarClasse();
             Loader = loadStatus;
             loaderStatus.Text = "Pronto.";
         }
@@ -109,6 +106,7 @@ namespace apiSeries
                 loaderStatus.Text = "Impossivel atualizar token de acesso.";
                 messageError = e.Message;
                 codeStatus = 401;
+                originalError = e;
             }
         }
 
@@ -127,6 +125,7 @@ namespace apiSeries
                 loaderStatus.Text = "Impossivel gerar token de acesso.";
                 messageError = e.Message;
                 codeStatus = 401;
+                originalError = e;
             }
         }
     }
